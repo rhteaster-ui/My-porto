@@ -1,6 +1,7 @@
 import { Background } from './components/Background';
 import { CursorGlow } from './components/CursorGlow';
 import { Nav } from './components/Nav';
+import { ThemeProvider } from './components/ThemeProvider';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
 import { Projects } from './sections/Projects';
@@ -10,7 +11,7 @@ import { Footer } from './sections/Footer';
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <Background />
       <CursorGlow />
       <Nav />
@@ -22,7 +23,7 @@ function App() {
         <Contact />
         <Footer />
       </main>
-    </>
+    </ThemeProvider>
   );
 }
 

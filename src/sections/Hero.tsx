@@ -27,7 +27,7 @@ export function Hero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="heading-1"
           >
-            <span className="block text-white/70">Halo, saya</span>
+            <span className="block text-fg/70">Halo, saya</span>
             <span className="shimmer-text mt-2 block">{profile.name}</span>
           </motion.h1>
 
@@ -35,10 +35,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg"
+            className="mt-6 max-w-xl text-base leading-relaxed text-fg/60 sm:text-lg"
           >
             {profile.tagline} {profile.role.toLowerCase()} dari{' '}
-            <span className="text-white/80">{profile.location}</span> — fokus pada PWA,
+            <span className="text-fg/80">{profile.location}</span> — fokus pada PWA,
             performa, dan pengalaman yang terasa tenang.
           </motion.p>
 
@@ -81,7 +81,7 @@ export function Hero() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={k}
-                    className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/60 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-white hover:shadow-glow"
+                    className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-fg/10 bg-fg/[0.03] text-fg/60 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-fg hover:shadow-glow"
                   >
                     <SocialIcon name={k} className="h-4 w-4" />
                   </a>
@@ -110,8 +110,8 @@ function Avatar() {
       {/* outer rotating conic ring */}
       <div className="absolute -inset-3 rounded-[28px] opacity-60 blur-[2px] animate-spin-slow ring-conic" />
       {/* inner static border */}
-      <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.04] p-1 shadow-glass">
-        <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-white/[0.06] to-white/[0.01]">
+      <div className="relative overflow-hidden rounded-[26px] border border-fg/10 bg-fg/[0.04] p-1 shadow-glass">
+        <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-fg/[0.06] to-fg/[0.01]">
           <motion.img
             src="https://j.top4top.io/p_376952pby0.png"
             alt={`Foto profil ${profile.name}`}
@@ -122,10 +122,10 @@ function Avatar() {
           />
         </div>
         {/* corner badges */}
-        <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-black/40 px-2 py-0.5 text-[10px] tracking-widest text-white/70 backdrop-blur">
+        <span className="absolute left-3 top-3 rounded-full border border-fg/15 bg-surface/40 px-2 py-0.5 text-[10px] tracking-widest text-fg/70 backdrop-blur">
           DEV
         </span>
-        <span className="absolute right-3 bottom-3 rounded-full border border-white/15 bg-black/40 px-2 py-0.5 text-[10px] tracking-widest text-white/70 backdrop-blur">
+        <span className="absolute right-3 bottom-3 rounded-full border border-fg/15 bg-surface/40 px-2 py-0.5 text-[10px] tracking-widest text-fg/70 backdrop-blur">
           {profile.handle}
         </span>
       </div>
@@ -140,9 +140,9 @@ function ScrollHint() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.4, duration: 1 }}
-      className="mt-16 inline-flex items-center gap-2 text-[11px] uppercase tracking-widestplus text-white/40 hover:text-white/70"
+      className="mt-16 inline-flex items-center gap-2 text-[11px] uppercase tracking-widestplus text-fg/40 hover:text-fg/70"
     >
-      <span className="h-px w-10 bg-white/20" />
+      <span className="h-px w-10 bg-fg/20" />
       Scroll
     </motion.a>
   );

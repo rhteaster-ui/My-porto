@@ -12,7 +12,7 @@ export function Projects() {
             <span className="heading-eyebrow">Selected Work</span>
             <h2 className="heading-2 mt-3">Projects</h2>
           </div>
-          <p className="max-w-md text-sm text-white/55">
+          <p className="max-w-md text-sm text-fg/55">
             Sebagian dari 50+ proyek yang dibangun, di-debug, dan dioptimalkan secara
             mandiri — full-device, fokus pada performa & kejernihan.
           </p>
@@ -97,15 +97,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           >
             {project.kind}
           </span>
-          <span className="font-mono text-[11px] text-white/40">
+          <span className="font-mono text-[11px] text-fg/40">
             {String(index + 1).padStart(2, '0')} · {project.year}
           </span>
         </div>
 
-        <h3 className="relative mt-5 text-lg font-semibold tracking-tight text-white">
+        <h3 className="relative mt-5 text-lg font-semibold tracking-tight text-fg">
           {project.title}
         </h3>
-        <p className="relative mt-2 text-sm leading-relaxed text-white/60">
+        <p className="relative mt-2 text-sm leading-relaxed text-fg/60">
           {project.summary}
         </p>
 
@@ -117,9 +117,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           ))}
         </div>
 
-        <div className="hairline relative mt-6 flex items-center justify-between pt-4 text-[12px] text-white/45">
+        <div className="hairline relative mt-6 flex items-center justify-between pt-4 text-[12px] text-fg/45">
           <span className="font-mono">case study</span>
-          <span className="inline-flex items-center gap-1 text-white/55 transition-colors duration-300 group-hover:text-white">
+          <span className="inline-flex items-center gap-1 text-fg/55 transition-colors duration-300 group-hover:text-fg">
             view
             <svg
               viewBox="0 0 24 24"

@@ -29,10 +29,10 @@ export function Stack() {
             <Reveal key={g.key} delay={gi * 0.05}>
               <div className="glass p-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-widestplus text-white/45">
+                  <span className="text-[11px] uppercase tracking-widestplus text-fg/45">
                     {g.title}
                   </span>
-                  <span className="font-mono text-[11px] text-white/30">
+                  <span className="font-mono text-[11px] text-fg/30">
                     {items.length.toString().padStart(2, '0')}
                   </span>
                 </div>
@@ -60,7 +60,7 @@ function TechTile({ tech, index }: { tech: Tech; index: number }) {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.7, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -4 }}
-      className="group relative flex aspect-square items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.02] backdrop-blur-md"
+      className="group relative flex aspect-square items-center justify-center rounded-xl border border-fg/[0.07] bg-fg/[0.02] backdrop-blur-md"
       style={{ perspective: '600px' }}
     >
       <div
@@ -87,7 +87,7 @@ function TechTile({ tech, index }: { tech: Tech; index: number }) {
           aria-label={name}
         />
       </motion.div>
-      <span className="absolute inset-x-0 -bottom-6 text-center text-[10px] uppercase tracking-widestplus text-white/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <span className="absolute inset-x-0 -bottom-6 text-center text-[10px] uppercase tracking-widestplus text-fg/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         {name}
       </span>
     </motion.div>

@@ -13,10 +13,17 @@ export default {
           800: '#101320',
           700: '#161a2a',
         },
+        // Theme-aware tokens (see src/index.css for the variable definitions).
+        // `fg` is the dominant text/icon color (white in dark, deep ink in light).
+        // `surface` is the canvas-matching color (black in dark, white in light) —
+        // used for translucent overlays like the nav scrim or badge backgrounds.
+        fg: 'rgb(var(--fg-rgb) / <alpha-value>)',
+        surface: 'rgb(var(--surface-rgb) / <alpha-value>)',
+        canvas: 'rgb(var(--canvas-rgb) / <alpha-value>)',
         accent: {
-          DEFAULT: '#7dd3fc',
-          glow: '#67e8f9',
-          violet: '#a78bfa',
+          DEFAULT: 'rgb(var(--accent-rgb) / <alpha-value>)',
+          glow: 'rgb(var(--accent-glow-rgb) / <alpha-value>)',
+          violet: 'rgb(var(--accent-violet-rgb) / <alpha-value>)',
         },
       },
       letterSpacing: {
@@ -27,8 +34,8 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        glass: '0 1px 0 0 rgba(255,255,255,0.06) inset, 0 8px 32px -12px rgba(0,0,0,0.6)',
-        glow: '0 0 0 1px rgba(167,139,250,0.18), 0 0 40px -10px rgba(125,211,252,0.35)',
+        glass: 'var(--shadow-glass)',
+        glow: 'var(--shadow-glow)',
       },
       keyframes: {
         floaty: {
