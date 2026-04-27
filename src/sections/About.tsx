@@ -19,10 +19,10 @@ export function About() {
               className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full blur-3xl"
               style={{
                 background:
-                  'radial-gradient(circle, rgba(125,211,252,0.18) 0%, transparent 70%)',
+                  'radial-gradient(circle, rgb(var(--aurora-cyan) / 0.18) 0%, transparent 70%)',
               }}
             />
-            <div className="relative space-y-5 text-[15px] leading-relaxed text-white/70">
+            <div className="relative space-y-5 text-[15px] leading-relaxed text-fg/70">
               {profile.about.map((p) => (
                 <p key={p}>{p}</p>
               ))}
@@ -32,10 +32,10 @@ export function About() {
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {profile.stats.map((s) => (
                   <div key={s.label}>
-                    <div className="text-2xl font-semibold tracking-tight text-white">
+                    <div className="text-2xl font-semibold tracking-tight text-fg">
                       {s.value}
                     </div>
-                    <div className="mt-1 text-[11px] uppercase tracking-widestplus text-white/45">
+                    <div className="mt-1 text-[11px] uppercase tracking-widestplus text-fg/45">
                       {s.label}
                     </div>
                   </div>
@@ -66,13 +66,15 @@ function Card({
   accent: 'cyan' | 'violet';
 }) {
   const dot =
-    accent === 'cyan' ? 'bg-accent shadow-[0_0_10px_rgba(125,211,252,0.7)]' : 'bg-accent-violet shadow-[0_0_10px_rgba(167,139,250,0.7)]';
+    accent === 'cyan'
+      ? 'bg-accent shadow-[0_0_10px_rgb(var(--accent-rgb)/0.7)]'
+      : 'bg-accent-violet shadow-[0_0_10px_rgb(var(--accent-violet-rgb)/0.7)]';
   return (
     <div className="glass p-6">
-      <div className="text-[11px] uppercase tracking-widestplus text-white/45">
+      <div className="text-[11px] uppercase tracking-widestplus text-fg/45">
         {title}
       </div>
-      <ul className="mt-4 space-y-2.5 text-sm text-white/75">
+      <ul className="mt-4 space-y-2.5 text-sm text-fg/75">
         {items.map((it) => (
           <li key={it} className="flex items-start gap-3">
             <span className={`mt-1.5 inline-block h-1.5 w-1.5 rounded-full ${dot}`} />

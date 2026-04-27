@@ -4,8 +4,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----- Theme tokens ----- */
 :root {
   color-scheme: dark;
+  --fg-rgb: 255 255 255;
+  --surface-rgb: 0 0 0;
+  --canvas-rgb: 6 7 11;
+  --canvas-rgb-mid: 8 10 19;
+
+  --accent-rgb: 125 211 252;
+  --accent-glow-rgb: 103 232 249;
+  --accent-violet-rgb: 167 139 250;
+
+  --aurora-cyan: 125 211 252;
+  --aurora-violet: 167 139 250;
+  --aurora-cyan-strength: 0.12;
+  --aurora-violet-strength: 0.18;
+  --aurora-blue-strength: 0.10;
+
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --grid-mask-stop: 35%;
+  --grain-opacity: 0.04;
+  --grain-blend: overlay;
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.06);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.12);
+
+  --shimmer-stop: rgba(255, 255, 255, 0.85);
+
+  --shadow-glass: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset, 0 8px 32px -12px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 0 1px rgba(167, 139, 250, 0.18), 0 0 40px -10px rgba(125, 211, 252, 0.35);
+
+  --cursor-glow-cyan: rgba(125, 211, 252, 0.10);
+  --cursor-glow-violet: rgba(167, 139, 250, 0.06);
+}
+
+:root.light {
+  color-scheme: light;
+  --fg-rgb: 11 18 32;
+  --surface-rgb: 255 255 255;
+  --canvas-rgb: 244 247 251;
+  --canvas-rgb-mid: 235 240 248;
+
+  --accent-rgb: 14 165 233;
+  --accent-glow-rgb: 6 182 212;
+  --accent-violet-rgb: 124 58 237;
+
+  --aurora-cyan: 56 189 248;
+  --aurora-violet: 139 92 246;
+  --aurora-cyan-strength: 0.22;
+  --aurora-violet-strength: 0.20;
+  --aurora-blue-strength: 0.16;
+
+  --grid-line: rgba(11, 18, 32, 0.05);
+  --grid-mask-stop: 30%;
+  --grain-opacity: 0.05;
+  --grain-blend: multiply;
+
+  --scrollbar-thumb: rgba(11, 18, 32, 0.10);
+  --scrollbar-thumb-hover: rgba(11, 18, 32, 0.20);
+
+  --shimmer-stop: rgba(11, 18, 32, 0.85);
+
+  --shadow-glass: 0 1px 0 0 rgba(255, 255, 255, 0.7) inset, 0 12px 36px -16px rgba(11, 18, 32, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(124, 58, 237, 0.18), 0 0 40px -10px rgba(14, 165, 233, 0.30);
+
+  --cursor-glow-cyan: rgba(14, 165, 233, 0.10);
+  --cursor-glow-violet: rgba(124, 58, 237, 0.08);
 }
 
 html,
@@ -15,15 +80,16 @@ body,
 }
 
 body {
-  @apply bg-ink-950 text-white/85 font-sans antialiased;
+  @apply text-fg/85 font-sans antialiased;
   font-feature-settings: 'cv11', 'ss01', 'ss02';
-  background-color: #06070b;
+  background-color: rgb(var(--canvas-rgb));
+  transition: background-color 320ms ease, color 320ms ease;
 }
 
 /* selection */
 ::selection {
-  background: rgba(167, 139, 250, 0.35);
-  color: #fff;
+  background: rgb(var(--accent-violet-rgb) / 0.35);
+  color: rgb(var(--fg-rgb));
 }
 
 /* scrollbar */
@@ -35,53 +101,59 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--scrollbar-thumb);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--scrollbar-thumb-hover);
 }
 
 @layer components {
   .glass {
-    @apply rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl shadow-glass;
+    @apply rounded-2xl border border-fg/[0.07] bg-fg/[0.03] backdrop-blur-xl shadow-glass;
   }
   .glass-strong {
-    @apply rounded-2xl border border-white/[0.09] bg-white/[0.05] backdrop-blur-2xl shadow-glass;
+    @apply rounded-2xl border border-fg/[0.09] bg-fg/[0.05] backdrop-blur-2xl shadow-glass;
   }
   .hairline {
-    @apply border-t border-white/[0.06];
+    @apply border-t border-fg/[0.06];
   }
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs tracking-wide text-white/70;
+    @apply inline-flex items-center gap-2 rounded-full border border-fg/10 bg-fg/[0.04] px-3 py-1 text-xs tracking-wide text-fg/70;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-5 py-2.5 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-white/[0.08] hover:shadow-glow;
+    @apply inline-flex items-center gap-2 rounded-full border border-fg/15 bg-fg/[0.06] px-5 py-2.5 text-sm font-medium text-fg/90 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-fg/[0.08] hover:shadow-glow;
   }
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-transparent px-5 py-2.5 text-sm text-white/70 transition-colors duration-300 hover:border-white/25 hover:text-white;
+    @apply inline-flex items-center gap-2 rounded-full border border-fg/10 bg-transparent px-5 py-2.5 text-sm text-fg/70 transition-colors duration-300 hover:border-fg/25 hover:text-fg;
   }
   .heading-eyebrow {
     @apply text-[11px] font-medium uppercase tracking-widestplus text-accent/80;
   }
   .heading-1 {
-    @apply text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tightest text-white;
+    @apply text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tightest text-fg;
   }
   .heading-2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tightest text-white;
+    @apply text-3xl md:text-4xl font-semibold tracking-tightest text-fg;
   }
   .muted {
-    @apply text-white/60;
+    @apply text-fg/60;
   }
 }
 
 /* layered, depth-rich background */
 .bg-aurora {
   background:
-    radial-gradient(1200px 600px at 12% -10%, rgba(125, 211, 252, 0.12), transparent 60%),
-    radial-gradient(900px 700px at 110% 10%, rgba(167, 139, 250, 0.18), transparent 65%),
-    radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.10), transparent 60%),
-    linear-gradient(180deg, #06070b 0%, #080a13 40%, #06070b 100%);
+    radial-gradient(1200px 600px at 12% -10%, rgb(var(--aurora-cyan) / var(--aurora-cyan-strength)), transparent 60%),
+    radial-gradient(900px 700px at 110% 10%, rgb(var(--aurora-violet) / var(--aurora-violet-strength)), transparent 65%),
+    radial-gradient(1000px 800px at 50% 120%, rgb(var(--aurora-cyan) / var(--aurora-blue-strength)), transparent 60%),
+    linear-gradient(
+      180deg,
+      rgb(var(--canvas-rgb)) 0%,
+      rgb(var(--canvas-rgb-mid)) 40%,
+      rgb(var(--canvas-rgb)) 100%
+    );
+  transition: background-color 320ms ease;
 }
 
 .grain {
@@ -89,28 +161,28 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
 }
 
 /* subtle gridlines */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 50% 0%, #000 35%, transparent 80%);
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 var(--grid-mask-stop), transparent 80%);
 }
 
 /* glowing animated ring used around the avatar */
 .ring-conic {
   background: conic-gradient(
     from 0deg,
-    rgba(125, 211, 252, 0) 0deg,
-    rgba(125, 211, 252, 0.6) 90deg,
-    rgba(167, 139, 250, 0.7) 180deg,
-    rgba(125, 211, 252, 0) 360deg
+    rgb(var(--accent-rgb) / 0) 0deg,
+    rgb(var(--accent-rgb) / 0.6) 90deg,
+    rgb(var(--accent-violet-rgb) / 0.7) 180deg,
+    rgb(var(--accent-rgb) / 0) 360deg
   );
 }
 
@@ -118,11 +190,11 @@ body {
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(125, 211, 252, 0.95) 25%,
-    rgba(167, 139, 250, 0.95) 50%,
-    rgba(125, 211, 252, 0.95) 75%,
-    rgba(255, 255, 255, 0.85) 100%
+    var(--shimmer-stop) 0%,
+    rgb(var(--accent-rgb) / 0.95) 25%,
+    rgb(var(--accent-violet-rgb) / 0.95) 50%,
+    rgb(var(--accent-rgb) / 0.95) 75%,
+    var(--shimmer-stop) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
@@ -141,8 +213,8 @@ body {
   z-index: 2;
   background: radial-gradient(
     circle,
-    rgba(125, 211, 252, 0.10) 0%,
-    rgba(167, 139, 250, 0.06) 35%,
+    var(--cursor-glow-cyan) 0%,
+    var(--cursor-glow-violet) 35%,
     transparent 65%
   );
   filter: blur(20px);
