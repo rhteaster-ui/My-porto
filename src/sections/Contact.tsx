@@ -19,7 +19,7 @@ export function Contact() {
             className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full blur-3xl"
             style={{
               background:
-                'radial-gradient(circle, rgb(var(--aurora-violet) / 0.18) 0%, transparent 70%)',
+                'radial-gradient(circle, rgb(var(--aurora-cyan) / 0.14) 0%, transparent 70%)',
             }}
           />
           <div className="relative grid gap-8 lg:grid-cols-[1.1fr_1fr]">

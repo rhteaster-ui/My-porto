@@ -8,7 +8,7 @@ export function About() {
         <span className="heading-eyebrow">About</span>
         <h2 className="heading-2 mt-3 max-w-3xl">
           Membangun web yang <span className="text-accent">tenang</span>, ringan, dan{' '}
-          <span className="text-accent-violet">tepat guna</span>.
+          <span className="text-fg">tepat guna</span>.
         </h2>
       </Reveal>
 
@@ -47,8 +47,8 @@ export function About() {
 
         <Reveal delay={0.12}>
           <div className="grid gap-6">
-            <Card title="Cara kerja" items={profile.workStyle} accent="cyan" />
-            <Card title="Minat" items={profile.interests} accent="violet" />
+            <Card title="Cara kerja" items={profile.workStyle} accent="primary" />
+            <Card title="Minat" items={profile.interests} accent="silver" />
           </div>
         </Reveal>
       </div>
@@ -63,12 +63,12 @@ function Card({
 }: {
   title: string;
   items: string[];
-  accent: 'cyan' | 'violet';
+  accent: 'primary' | 'silver';
 }) {
   const dot =
-    accent === 'cyan'
+    accent === 'primary'
       ? 'bg-accent shadow-[0_0_10px_rgb(var(--accent-rgb)/0.7)]'
-      : 'bg-accent-violet shadow-[0_0_10px_rgb(var(--accent-violet-rgb)/0.7)]';
+      : 'bg-accent-glow shadow-[0_0_10px_rgb(var(--accent-glow-rgb)/0.6)]';
   return (
     <div className="glass p-6">
       <div className="text-[11px] uppercase tracking-widestplus text-fg/45">
