@@ -4,73 +4,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ----- Theme tokens ----- */
+/* ----- Theme tokens -----
+ * Cool, elegant, masculine monochrome.
+ * Primary palette: graphite, gunmetal, steel, silver — tiny hint of cool
+ * steel-blue as accent. No violet/pink in either mode.
+ */
 :root {
   color-scheme: dark;
-  --fg-rgb: 255 255 255;
+  --fg-rgb: 232 236 242;
   --surface-rgb: 0 0 0;
-  --canvas-rgb: 6 7 11;
-  --canvas-rgb-mid: 8 10 19;
+  --canvas-rgb: 9 11 14;
+  --canvas-rgb-mid: 13 16 22;
 
-  --accent-rgb: 125 211 252;
-  --accent-glow-rgb: 103 232 249;
-  --accent-violet-rgb: 167 139 250;
+  /* steel-blue accent (cool, desaturated) */
+  --accent-rgb: 156 175 196;
+  --accent-glow-rgb: 191 205 222;
+  /* secondary tone is silver/platinum, not violet */
+  --accent-violet-rgb: 203 213 225;
 
-  --aurora-cyan: 125 211 252;
-  --aurora-violet: 167 139 250;
-  --aurora-cyan-strength: 0.12;
-  --aurora-violet-strength: 0.18;
-  --aurora-blue-strength: 0.10;
+  /* aurora blobs: gunmetal + steel, no purples */
+  --aurora-cyan: 130 152 178;
+  --aurora-violet: 90 106 128;
+  --aurora-cyan-strength: 0.08;
+  --aurora-violet-strength: 0.07;
+  --aurora-blue-strength: 0.06;
 
-  --grid-line: rgba(255, 255, 255, 0.035);
+  --grid-line: rgba(232, 236, 242, 0.030);
   --grid-mask-stop: 35%;
-  --grain-opacity: 0.04;
+  --grain-opacity: 0.035;
   --grain-blend: overlay;
 
-  --scrollbar-thumb: rgba(255, 255, 255, 0.06);
-  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb: rgba(232, 236, 242, 0.06);
+  --scrollbar-thumb-hover: rgba(232, 236, 242, 0.14);
 
-  --shimmer-stop: rgba(255, 255, 255, 0.85);
+  --shimmer-stop: rgba(232, 236, 242, 0.85);
 
-  --shadow-glass: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset, 0 8px 32px -12px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 0 1px rgba(167, 139, 250, 0.18), 0 0 40px -10px rgba(125, 211, 252, 0.35);
+  --shadow-glass: 0 1px 0 0 rgba(232, 236, 242, 0.05) inset, 0 10px 36px -14px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 0 1px rgba(156, 175, 196, 0.22), 0 0 40px -12px rgba(156, 175, 196, 0.30);
 
-  --cursor-glow-cyan: rgba(125, 211, 252, 0.10);
-  --cursor-glow-violet: rgba(167, 139, 250, 0.06);
+  --cursor-glow-cyan: rgba(156, 175, 196, 0.10);
+  --cursor-glow-violet: rgba(203, 213, 225, 0.05);
 }
 
 :root.light {
   color-scheme: light;
-  --fg-rgb: 11 18 32;
+  --fg-rgb: 22 28 38;
   --surface-rgb: 255 255 255;
-  --canvas-rgb: 244 247 251;
-  --canvas-rgb-mid: 235 240 248;
+  --canvas-rgb: 241 244 248;
+  --canvas-rgb-mid: 232 237 244;
 
-  --accent-rgb: 14 165 233;
-  --accent-glow-rgb: 6 182 212;
-  --accent-violet-rgb: 124 58 237;
+  --accent-rgb: 71 85 105;
+  --accent-glow-rgb: 100 116 139;
+  --accent-violet-rgb: 100 116 139;
 
-  --aurora-cyan: 56 189 248;
-  --aurora-violet: 139 92 246;
-  --aurora-cyan-strength: 0.22;
-  --aurora-violet-strength: 0.20;
-  --aurora-blue-strength: 0.16;
+  --aurora-cyan: 71 85 105;
+  --aurora-violet: 100 116 139;
+  --aurora-cyan-strength: 0.12;
+  --aurora-violet-strength: 0.09;
+  --aurora-blue-strength: 0.08;
 
-  --grid-line: rgba(11, 18, 32, 0.05);
+  --grid-line: rgba(22, 28, 38, 0.05);
   --grid-mask-stop: 30%;
-  --grain-opacity: 0.05;
+  --grain-opacity: 0.04;
   --grain-blend: multiply;
 
-  --scrollbar-thumb: rgba(11, 18, 32, 0.10);
-  --scrollbar-thumb-hover: rgba(11, 18, 32, 0.20);
+  --scrollbar-thumb: rgba(22, 28, 38, 0.10);
+  --scrollbar-thumb-hover: rgba(22, 28, 38, 0.22);
 
-  --shimmer-stop: rgba(11, 18, 32, 0.85);
+  --shimmer-stop: rgba(22, 28, 38, 0.85);
 
-  --shadow-glass: 0 1px 0 0 rgba(255, 255, 255, 0.7) inset, 0 12px 36px -16px rgba(11, 18, 32, 0.18);
-  --shadow-glow: 0 0 0 1px rgba(124, 58, 237, 0.18), 0 0 40px -10px rgba(14, 165, 233, 0.30);
+  --shadow-glass: 0 1px 0 0 rgba(255, 255, 255, 0.7) inset, 0 12px 36px -16px rgba(22, 28, 38, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(71, 85, 105, 0.20), 0 0 40px -10px rgba(71, 85, 105, 0.28);
 
-  --cursor-glow-cyan: rgba(14, 165, 233, 0.10);
-  --cursor-glow-violet: rgba(124, 58, 237, 0.08);
+  --cursor-glow-cyan: rgba(71, 85, 105, 0.10);
+  --cursor-glow-violet: rgba(100, 116, 139, 0.06);
 }
 
 html,
@@ -88,7 +95,7 @@ body {
 
 /* selection */
 ::selection {
-  background: rgb(var(--accent-violet-rgb) / 0.35);
+  background: rgb(var(--accent-rgb) / 0.30);
   color: rgb(var(--fg-rgb));
 }
 
@@ -180,19 +187,19 @@ body {
   background: conic-gradient(
     from 0deg,
     rgb(var(--accent-rgb) / 0) 0deg,
-    rgb(var(--accent-rgb) / 0.6) 90deg,
-    rgb(var(--accent-violet-rgb) / 0.7) 180deg,
+    rgb(var(--accent-rgb) / 0.45) 90deg,
+    rgb(var(--accent-glow-rgb) / 0.55) 180deg,
     rgb(var(--accent-rgb) / 0) 360deg
   );
 }
 
-/* shimmering text */
+/* shimmering text — cool monochrome */
 .shimmer-text {
   background: linear-gradient(
     90deg,
     var(--shimmer-stop) 0%,
     rgb(var(--accent-rgb) / 0.95) 25%,
-    rgb(var(--accent-violet-rgb) / 0.95) 50%,
+    rgb(var(--accent-glow-rgb) / 0.95) 50%,
     rgb(var(--accent-rgb) / 0.95) 75%,
     var(--shimmer-stop) 100%
   );
