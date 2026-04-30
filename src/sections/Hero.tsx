@@ -105,7 +105,7 @@ function Avatar() {
       initial={{ opacity: 0, scale: 0.96, filter: 'blur(14px)' }}
       animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="relative shrink-0 self-start lg:self-center"
+      className="relative shrink-0 self-start lg:ml-10 lg:self-center xl:ml-16"
     >
       {/* outer rotating conic ring */}
       <div className="absolute -inset-3 rounded-[28px] opacity-60 blur-[2px] animate-spin-slow ring-conic" />
