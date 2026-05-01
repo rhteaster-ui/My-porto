@@ -8,6 +8,7 @@ export function CursorGlow() {
     const el = ref.current;
     if (!el) return;
     let raf = 0;
+    let lastFrame = 0;
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
     let tx = x;
@@ -18,10 +19,17 @@ export function CursorGlow() {
       ty = e.clientY;
     };
 
-    const tick = () => {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+    const tick = (time: number) => {
+      if (document.hidden) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      if (time - lastFrame >= 16) {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+        lastFrame = time;
+      }
       raf = requestAnimationFrame(tick);
     };
 

@@ -4,7 +4,8 @@ export type Project = {
   tags: string[];
   year: string;
   kind: 'PWA' | 'Web App' | 'Static' | 'AI Tool';
-  accent?: 'cyan' | 'violet' | 'mint';
+  image: string;
+  url: string;
 };
 
 export const projects: Project[] = [
@@ -15,7 +16,8 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Tailwind', 'FastAPI'],
     year: '2025',
     kind: 'AI Tool',
-    accent: 'violet',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/rai-engine',
   },
   {
     title: 'Lite Notes PWA',
@@ -24,7 +26,8 @@ export const projects: Project[] = [
     tags: ['PWA', 'Vue', 'Service Worker', 'Upstash'],
     year: '2025',
     kind: 'PWA',
-    accent: 'cyan',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/lite-notes',
   },
   {
     title: 'Focus Timer',
@@ -33,7 +36,8 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Tailwind'],
     year: '2024',
     kind: 'Web App',
-    accent: 'mint',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/focus-timer',
   },
   {
     title: 'Statik Showcase',
@@ -42,7 +46,8 @@ export const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JS'],
     year: '2024',
     kind: 'Static',
-    accent: 'cyan',
+    image: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/statik-showcase',
   },
   {
     title: 'API Bridge',
@@ -51,7 +56,8 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'FastAPI', 'REST'],
     year: '2024',
     kind: 'Web App',
-    accent: 'violet',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/rai-engine',
   },
   {
     title: 'Channel Hub',
@@ -60,6 +66,7 @@ export const projects: Project[] = [
     tags: ['React', 'Tailwind', 'Vercel'],
     year: '2024',
     kind: 'Static',
-    accent: 'mint',
+    image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://example.com/channel-hub',
   },
 ];
