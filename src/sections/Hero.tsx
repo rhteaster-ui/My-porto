@@ -58,7 +58,7 @@ export function Hero() {
       </motion.span>
 
       <div className="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-16">
-        <div className="flex-1 lg:pr-6">
+        <div className="order-2 flex-1 lg:order-1 lg:pr-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -150,8 +150,24 @@ function Avatar({ reduce }: { reduce: boolean }) {
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="relative shrink-0 self-center lg:ml-auto lg:self-center"
+      className="order-1 relative shrink-0 self-start lg:order-2 lg:ml-auto lg:self-center"
     >
+      {!reduce ? (
+        <>
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -inset-4 -z-10 rounded-[34px] bg-accent/20 blur-2xl"
+            animate={{ opacity: [0.35, 0.6, 0.35], scale: [0.96, 1.04, 0.96] }}
+            transition={{ duration: 5.8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -right-5 -bottom-5 -z-10 h-24 w-24 rounded-full bg-fg/15 blur-xl"
+            animate={{ y: [0, -10, 0], x: [0, 6, 0], opacity: [0.2, 0.45, 0.2] }}
+            transition={{ duration: 6.4, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </>
+      ) : null}
       <div className="relative overflow-hidden rounded-[26px] border border-fg/10 bg-fg/[0.04] p-1 shadow-glass">
         <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-fg/[0.06] to-fg/[0.01]">
           <motion.img
