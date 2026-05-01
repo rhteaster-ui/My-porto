@@ -207,7 +207,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 8s linear infinite;
+  animation: shimmer 12s linear infinite;
 }
 
 /* cursor glow */
@@ -242,6 +242,16 @@ body {
   perspective: 800px;
 }
 
+
+.stack-edge-fade {
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+@media (max-width: 640px) {
+  .marquee {
+    animation-duration: 58s;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -263,7 +273,7 @@ body {
 
 .marquee {
   will-change: transform;
-  animation-duration: 28s;
+  animation-duration: 44s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
