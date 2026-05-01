@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'R_hmt ofc',
+  name: 'Rhhmat',
   handle: 'rahmat-369',
   role: 'Self-taught Web Developer',
   tagline: 'Lightweight web apps, PWAs, and quietly polished interfaces.',
