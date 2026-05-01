@@ -58,7 +58,7 @@ export function Hero() {
       </motion.span>
 
       <div className="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-16">
-        <div className="flex-1 lg:pr-6">
+        <div className="order-2 flex-1 lg:order-1 lg:pr-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ function Avatar({ reduce }: { reduce: boolean }) {
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="relative shrink-0 self-center lg:ml-auto lg:self-center"
+      className="order-1 relative shrink-0 self-end lg:order-2 lg:ml-auto lg:self-center"
     >
       <div className="relative overflow-hidden rounded-[26px] border border-fg/10 bg-fg/[0.04] p-1 shadow-glass">
         <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-fg/[0.06] to-fg/[0.01]">
