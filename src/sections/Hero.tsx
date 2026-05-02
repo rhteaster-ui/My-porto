@@ -150,8 +150,23 @@ function Avatar({ reduce }: { reduce: boolean }) {
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="order-1 relative shrink-0 self-end lg:order-2 lg:ml-auto lg:self-center"
+      className="order-1 relative shrink-0 self-end lg:order-2 lg:ml-auto lg:-translate-x-8 lg:self-center"
     >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -inset-8 -z-10"
+      >
+        <motion.span
+          className="absolute left-2 top-10 h-28 w-28 rounded-full bg-gray-500/30 blur-2xl"
+          animate={reduce ? undefined : { x: [0, -12, 0], y: [0, 8, 0], scale: [1, 1.08, 1] }}
+          transition={reduce ? undefined : { duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.span
+          className="absolute -right-3 bottom-4 h-36 w-36 rounded-full bg-gray-400/25 blur-3xl"
+          animate={reduce ? undefined : { x: [0, 10, 0], y: [0, -10, 0], scale: [1, 0.92, 1] }}
+          transition={reduce ? undefined : { duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </motion.div>
       <div className="relative overflow-hidden rounded-[26px] border border-fg/10 bg-fg/[0.04] p-1 shadow-glass">
         <div className="overflow-hidden rounded-[22px] bg-gradient-to-br from-fg/[0.06] to-fg/[0.01]">
           <motion.img
