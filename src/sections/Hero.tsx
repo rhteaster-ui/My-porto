@@ -150,7 +150,7 @@ function Avatar({ reduce }: { reduce: boolean }) {
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="order-1 relative shrink-0 self-end lg:order-2 lg:ml-auto lg:-translate-x-8 lg:self-center"
+      className="order-1 relative shrink-0 self-start lg:order-2 lg:ml-auto lg:-translate-x-8 lg:self-center"
     >
       <motion.div
         aria-hidden
