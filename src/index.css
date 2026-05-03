@@ -129,7 +129,7 @@ body {
     @apply inline-flex items-center gap-2 rounded-full border border-fg/10 bg-fg/[0.04] px-3 py-1 text-xs tracking-wide text-fg/70;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full border border-fg/15 bg-fg/[0.06] px-5 py-2.5 text-sm font-medium text-fg/90 backdrop-blur transition-all duration-300 hover:border-accent/40 hover:bg-fg/[0.08] hover:shadow-glow;
+    @apply inline-flex items-center gap-2 rounded-full border border-fg/15 bg-fg/[0.06] px-5 py-2.5 text-sm font-medium text-fg/90 transition-all duration-300 hover:border-accent/40 hover:bg-fg/[0.08] hover:shadow-glow;
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-full border border-fg/10 bg-transparent px-5 py-2.5 text-sm text-fg/70 transition-colors duration-300 hover:border-fg/25 hover:text-fg;
@@ -252,6 +252,22 @@ body {
     animation-duration: 58s;
   }
 }
+
+
+@media (max-width: 640px) {
+  .grain {
+    opacity: 0.015;
+  }
+
+  .bg-grid {
+    background-size: 70px 70px;
+  }
+
+  .shimmer-text {
+    animation-duration: 16s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
